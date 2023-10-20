@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myLibrary</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <p>my Library</p>
+        <button id="addbookbtn">Add Book</button>
+    </header>
+    <section class="mybooks">
+        <p>My Books</p>
+        
+        <div id="cardcontainer">
+
+        </div>
+        <div class="blur">
+        <form id="bookform" action="" method="post">
+            <span id="bookX">&#10006</span>
+            <p><b>Add New Book</b></p>
+            <input id="title" name="title" type="text" placeholder="title" required>
+            <input id="author" name="author" type="text" placeholder="author" required>
+            <input id="pages" name="pages" type="number" placeholder="pages" required>
+            <div class="readit">
+                <p>Have you read it?</p>
+                <input id="yes" value="yes" name="read" type="checkbox">
+                <label for="yes">Yes</label>
+            </div>
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating">
+                <option value="1">1 star</option>
+                <option value="2">2 stars</option>
+                <option value="3">3 stars</option>
+                <option value="4">4 stars</option>
+                <option value="5">5 stars</option>
+            </select>
+            <button type="submit "onclick="event.preventDefault();getBookFromForm()">Add my Book</button>
+        </form>
+        </div>
+    </section>
+ <script src="script.js"></script>    
+</body>
+</html>
