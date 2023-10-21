@@ -24,14 +24,28 @@ const getBookFromForm = () => {
     let rating = document.getElementById("rating").value;
     newBook = new Book(title, author, pages, read, rating)
     myLibrary.push(newBook);
-    bookForm.style.visibility = "hidden";
-    popUpOn = false;
+    removePopUp();
     createBook();
 }
 
+function removePopUp() {
+    bookForm.style.visibility = "hidden";
+    blurScreen.style.visibility = "hidden";
+    popUpOn = false;
+
+}
+
+function showPopUp() {
+    bookForm.style.visibility = "visible";
+    blurScreen.style.visibility = "visible";
+    popUpOn = true;
+
+}
+
+
 function createBook() {
     const bookId = myLibrary.length - 1;
-    const bookX = document.createElement("p")
+    const bookX = document.createElement("span")
     const bookCard = document.createElement("div");
     const titleCard = document.createElement("p");
     const authorCard = document.createElement("p");
@@ -56,6 +70,7 @@ function createBook() {
     titleCard.innerHTML = "<b>Title</b>: " + newBook.title;
     authorCard.innerHTML = "<b>Author</b>: " + newBook.author;
     pagesCard.innerHTML = "<b>nº of pages</b>: " + newBook.pages;
+
     if(newBook.read) {
         readCard.textContent = "Read";
         readCard.style.backgroundColor = "rgb(156, 255, 181)";
@@ -101,17 +116,9 @@ function createBook() {
 
 
 
-addBookBtn.addEventListener("click", ()=> {
-    bookForm.style.visibility = "visible";
-    blurScreen.style.visibility = "visible";
-    popUpOn = true;
-})
+addBookBtn.addEventListener("click", showPopUp)
 
-bookX.addEventListener("click", ()=> {
-    bookForm.style.visibility = "hidden";
-    popUpOn = false;
-})
-
+bookX.addEventListener("click", removePopUp)
 
 
   
